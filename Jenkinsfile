@@ -33,6 +33,7 @@ pipeline {
 //                     deleteDirs: true
 //                 )
                     sh("ls -al ${env.WORKSPACE}")
+                    sh("cd ..")
                     deleteDir()  // clean up current work directory
                     sh("ls -al ${env.WORKSPACE}")
             }
