@@ -22,16 +22,19 @@ pipeline {
 
         stage('Clean') {
             steps {
-                cleanWs(
-                    cleanWhenAborted: true,
-                    cleanWhenFailure: true,
-                    cleanWhenNotBuilt: true,
-                    cleanWhenSuccess: true,
-                    cleanWhenUnstable: true,
-                    cleanupMatrixParent: true,
-                    disableDeferredWipeout: true,
-                    deleteDirs: true
-                )
+//                 cleanWs(
+//                     cleanWhenAborted: true,
+//                     cleanWhenFailure: true,
+//                     cleanWhenNotBuilt: true,
+//                     cleanWhenSuccess: true,
+//                     cleanWhenUnstable: true,
+//                     cleanupMatrixParent: true,
+//                     disableDeferredWipeout: true,
+//                     deleteDirs: true
+//                 )
+                    sh("ls -al ${env.WORKSPACE}")
+                    deleteDir()  // clean up current work directory
+                    sh("ls -al ${env.WORKSPACE}")
             }
         }
     }
